@@ -45,7 +45,7 @@ router.post('/guardarbd', function (req, res, next) {
 
 router.post('/ingresar', function (req, res, next) {
   var a;
-  connection.query('SELECT * from usuarios where usuario="' + req.body.txtusuario + '" and password=' + req.body.txtpassword,
+  connection.query('SELECT * from usuarios where usuario="' + req.body.txtusuario + '" and password="'+ req.body.txtpassword + '"',
     function (err, rows) {
       if (err) throw err;
       a = rows
@@ -67,7 +67,7 @@ router.post('/publicar', function (req, res, next) {
   }
   var info
   var list
-  connection.query('SELECT * from usuarios where usuario="' + req.body.txtusuario + '" and password=' + req.body.txtpassword,
+  connection.query('SELECT * from usuarios where usuario="' + req.body.txtusuario + '" and password= "' + req.body.txtpassword + '"',
     function (err, rows) {
       if (err) throw err;
       info = rows;
