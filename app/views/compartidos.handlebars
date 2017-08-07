@@ -1,0 +1,27 @@
+<table>
+    <tr>
+        <th>
+            nombre - 
+        </th>
+        <th>
+            # de usuario compartido
+        </th>
+        
+    </tr>
+{{#each data}}
+<tr>
+     <td>{{nombres}}</td>
+     <td>{{idcompartido}}</td>
+    
+     <td>
+         <form action="/eliminarcom" method="POST">
+           <input type="hidden" value={{idcompartido}} name="idcompartido">
+           <input type="hidden" value={{idcompartidor}} name="idcompartidor">
+           <input type="hidden" value={{id}} name="id">
+           <input type= "submit"  value= "eliminar compartido" name="elimcom" /> </form>
+         </form> 
+          </td>
+          
+   
+{{/each}}
+</table>

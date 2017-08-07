@@ -1,0 +1,93 @@
+<head>
+        <title>Perfil</title>
+        <meta charset=“UTF-8”>
+    </head>
+ <h1>
+     {{data.0.usuario}}
+     
+ </h1>
+<table>
+    <tr>
+<td>
+    nombre: 
+    {{data.0.nombres}}
+    {{data.0.apellidos}}
+    
+</td>
+
+</table>
+    
+     <form action="/compartir" method="POST">
+      <input type="hidden" value={{data.0.id}} name="txtid">
+      <input type= "submit"  value="compartir/compartidos"  name="compartir" />
+      
+     </form>
+
+
+  <form action="/editperfil" method="POST">
+
+ <input type="hidden" value={{data.0.id}} name="txtid">
+ <input type="hidden" value={{data.0.usuario}} name="txtusuario">
+ <input type="hidden" value={{data.0.password}} name="txtpassword">
+ <input type= "submit"  value="editar perfil"  name="editperfil" />
+
+</form>
+  
+  <form action="/navegar" method="POST">
+  <input type="text" placeholder="busqueda" name="txtbusqueda"  />
+  <input type="hidden" value={{data.0.id}} name="txtid">
+  <input type= "submit"  value="buscar"  name="buscar" />
+  
+  </form>
+
+<form action="/publicar" method="POST">
+ 
+ <input type="text" placeholder="titulo" name="txttitulo" required />
+ <input type="text" placeholder="lugar" name="txtlugar" required/>
+ <input type="text" placeholder="descripcion" name="txtdescripcion" required />
+ <input type="hidden" value={{data.0.id}} name="txtid">
+ <input type="hidden" value={{data.0.usuario}} name="txtusuario">
+ <input type="hidden" value={{data.0.password}} name="txtpassword">
+ <input type= "submit"  value= "publicar" name="publicar" />
+     </form>       
+
+    
+<table>
+    <tr>
+        <th>
+            titulo
+        </th>
+        <th>
+            lugar
+        </th>
+        <th>
+            descripcion
+        </th>
+    </tr>
+{{#each lista}}
+<tr>
+     <td>{{titulo}}</td>
+     <td>{{lugar}}</td>
+     <td>{{descripcion}}</td> 
+
+     <td>
+         <form action="/editarimag" method="POST">
+            <input type="hidden" value={{usuarioid}} name="txtusuarioid">
+            <input type="hidden" value={{id}} name="txtid">
+            <input type="hidden" value={{titulo}} name="txttitulo">
+            <input type="hidden" value={{lugar}} name="txtlugar">
+            <input type="hidden" value={{descripcion}} name="txtdescripcion">
+            <input type= "submit"  value= "editar" name="editari" />
+            
+         </form> 
+          </td>
+          <td>
+          <form action="/eliminari" method="POST" >
+          <input type="hidden" value={{usuarioid}} name="idusuarios">
+          <input type="hidden" value={{id}} name="idimagenes">
+      <input type= "submit"  value= "eliminar" name="eliminari" /> </form></td>
+
+</tr>
+   
+{{/each}}
+</table>

@@ -1,0 +1,26 @@
+<table>
+    <tr>
+        <th>
+    nombre
+        </th>
+        <th>
+    usuario
+        </th>
+
+    {{#each lista}}
+<tr>
+     <td>{{nombres}}</td>
+     <td>{{usuario}}</td>
+    
+
+       <td>
+          <form action="/aggcom" method="POST" >
+          <input type="hidden" value={{id}} name="idcompartido">
+          <input type="hidden" value={{data}} name="idcompartidor">
+          <input type= "submit"  value= "compartir" name="aggcom" /> </form>
+      </td>
+
+</tr>
+{{/each}}
+</table>
+     

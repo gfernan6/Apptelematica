@@ -1,0 +1,19 @@
+<form action="/geditperfil" method="POST">
+
+<table>
+ </tr>
+ <td>
+     
+ 
+ <input type="text" value="{{data.0.nombres}}" name="txtnombres" required />
+ <input type="text" value="{{data.0.apellidos}}" name="txtapellidos" required/>
+ <input type="text" value="{{data.0.usuario}}" name="txtusuario" required />
+ <input type="password" value="{{data.0.password}}" name="txtpassword" required />
+ <input type="hidden" value={{data.0.id}} name="id">
+
+<input type= "submit"  value= "guardar" name="guardaredit" />
+                 
+</td>
+</table>
+     </form> 
+
